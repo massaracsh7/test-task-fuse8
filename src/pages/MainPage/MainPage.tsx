@@ -1,52 +1,20 @@
 import { useEffect, useState } from "react";
 import CardsList from "../../components/CardsList/CardsList";
 import InputSearch from "../../components/InputSearch/InputSearch";
-import { searchCharacters } from "../../utils/api";
-import { CharacterArray } from "../../types/types";
+
 import styles from "./MainPage.module.css";
+import useCharacterSearch from "../../hooks/useCharacterSearch";
 
 const MainPage = () => {
-  const [search, setSearch] = useState(localStorage.getItem("textQuery") ?? "");
-  const [loading, setLoading] = useState(false);
-  const [textError, setError] = useState("");
-  const [characters, setCharacters] = useState<CharacterArray>([]);
-  const [counts, setCounts] = useState(0);
+const [search, setSearch] = useState<string>(
+  localStorage.getItem("textQuery") ?? ""
+);
 
-  useEffect(() => {
-    const getData = async () => {
-      if (search.length < 3) {
-        setCharacters([]);
-        return;
-      }
-      setLoading(true);
-      setError("");
-      try {
-        const data = await searchCharacters(search);
-        if (data?.results && data.results.length > 0) {
-          setCharacters(data.results);
-          setCounts(data.info.count);
-          setLoading(false);
-        } else {
-          setLoading(false);
-          setError("Sorry, your character is not found. Please, try again.");
-          setCharacters([]);
-          setCounts(0);
-        }
-      } catch (error) {
-        setLoading(false);
-        setError("Failed to load data. Please try again.");
-        setCounts(0);
-        console.error("Failed to load data", error);
-      }
-    };
+useEffect(() => {
+  localStorage.setItem("textQuery", search);
+}, [search]);
 
-    if (search) {
-      getData();
-    } else {
-      setCharacters([]);
-      setCounts(0);
-    }
-  }, [search]);
+const { loading, characters, counts, error } = useCharacterSearch(search);
 
   return (
     <>
@@ -57,7 +25,7 @@ const MainPage = () => {
         )}
       </div>
       {loading ? <p>Loading...</p> : <CardsList characters={characters} />}
-      {textError && <p>{textError}</p>}
+      {error && <p>{error}</p>}
     </>
   );
 };

@@ -8,9 +8,10 @@
 .cardsItem {
   display: flex;
   padding: 20px 34px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 400;
+
   box-shadow: var(--basic-box-shadow);
   cursor: pointer;
 }
@@ -23,6 +24,8 @@
 .cardsItem:nth-child(2) {
   grid-column: span 6;
   height: 262px;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .cardsItem:nth-child(n + 3) {
@@ -61,4 +64,4 @@
 .grey {
   color: var(--text-color);
   font-weight: 700;
-} 
+}

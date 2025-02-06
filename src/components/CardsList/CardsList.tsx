@@ -29,7 +29,7 @@ const CardsList: React.FC<CardsListProps> = ({ characters }) => {
                   to={`/character/${character.id}`}
                   className={styles.cardsLink}
                 >
-                  <h3>{character.name}</h3>
+                  <p>{character.name}</p>
                   <div className={styles.cardsBottom}>
                     <p>
                       Status:{" "}
@@ -44,7 +44,7 @@ const CardsList: React.FC<CardsListProps> = ({ characters }) => {
             ) : null
           )}
         </ul>
-    )}
+      )}
     </>
   );
 };
