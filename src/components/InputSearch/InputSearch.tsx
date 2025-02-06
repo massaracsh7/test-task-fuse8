@@ -7,8 +7,9 @@ interface InputSearchProps {
 
 const InputSearch: React.FC<InputSearchProps> = ({ setSearch, search }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-    localStorage.setItem("textQuery", e.target.value);
+    const text = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    setSearch(text);
+    localStorage.setItem("textQuery", text);
   };
 
   return (

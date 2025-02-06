@@ -13,6 +13,10 @@ const MainPage = () => {
 
   useEffect(() => {
     const getData = async () => {
+        if (search.length < 3) {
+          setCharacters([]);
+          return; 
+        }
       setLoading(true);
       setError("");
       try {
@@ -39,6 +43,7 @@ const MainPage = () => {
       getData();
     } else {
       setCharacters([]);
+      setCounts(0);
     }
   }, [search]);
 
