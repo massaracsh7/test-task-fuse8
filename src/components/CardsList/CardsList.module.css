@@ -16,6 +16,11 @@
   font-size: 18px;
   font-weight: bold;
   box-shadow: var(--basic-box-shadow);
+  cursor:pointer;
+}
+
+.cardsItem:hover {
+  transform: translateY(-5px);
 }
 
 .cardsItem:nth-child(1),

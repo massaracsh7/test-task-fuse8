@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Character, defaultCharacter } from "../../types/types";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCharacter } from "../../utils/api";
+import DetailInfo from "../../components/DetailInfo/DetailInfo";
+import styles from "./DetailPage.module.css";
 
 const DetailPage = () => {
   const [character, setCharacter] = useState<Character>(defaultCharacter);
@@ -29,28 +31,7 @@ const DetailPage = () => {
 
   const viewDetails = useMemo(() => {
     if (loading) return <div>Loading...</div>;
-    return (
-      <div>
-        <img src={character.image} />
-        <h4 className="detail__name">{character.name}</h4>
-        <p>
-          <b>Status:</b>
-          {character.status}
-        </p>
-        <p>
-          <b>Gender:</b> {character.gender}
-        </p>
-        <p>
-          <b>Species:</b> {character.species}
-        </p>
-        <p>
-          <b>Loctaion:</b> {character.location.name}
-        </p>
-        <p>
-          <b>Origin:</b> {character.origin.name}
-        </p>
-      </div>
-    );
+    return <DetailInfo character={character} />;
   }, [character, loading]);
 
   const goBack = () => {
@@ -59,8 +40,10 @@ const DetailPage = () => {
 
   return (
     <>
-      <button onClick={goBack}>back</button>
-      <div>{viewDetails}</div>
+      <button className={styles.buttonBack} onClick={goBack}>
+        To Main Page
+      </button>
+      {viewDetails}
     </>
   );
 };

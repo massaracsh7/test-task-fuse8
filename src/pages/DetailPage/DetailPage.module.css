@@ -1,0 +1,14 @@
+.buttonBack {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 70%;
+}
+
+.buttonBack:hover {
+  border: 1px solid var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--basic-box-shadow);
+}

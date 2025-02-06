@@ -1,0 +1,12 @@
+.detailWrapper {
+  padding: 30px;
+  box-shadow: var(--basic-box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detailName {
+  font-size: 24px;
+  text-align: center;
+}
