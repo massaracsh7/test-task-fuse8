@@ -1,22 +1,41 @@
 @font-face {
   font-family: "Fira Sans";
-  src: url("/fonts/FiraSans-Regular.woff2") format("woff2");
+  src: url("/fonts/fira-sans-v17-latin-regular") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Fira Sans";
-  src: url("/fonts/FiraSans-Bold.woff2") format("woff2");
+  src: url("/fonts/fira-sans-v17-latin-700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/montserrat-v29-latin-regular.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/montserrat-v29-latin-700.woff2') format('woff2');
+}
+
 :root {
   --font-primary: "Fira Sans", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
   --primary-color: #282626;
   --secondary-color: #656ec2;
   --background-color: #ffffff;
+  --text-color: #767676;
+  --green-color: #267504;
+  --red-color: #820A0A;
+
 
   --basic-box-shadow: 0px 7px 12px 0px #64646F33;
 

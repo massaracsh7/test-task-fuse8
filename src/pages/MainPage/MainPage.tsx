@@ -3,6 +3,7 @@ import CardsList from "../../components/CardsList/CardsList";
 import InputSearch from "../../components/InputSearch/InputSearch";
 import { searchCharacters } from "../../utils/api";
 import { CharacterArray } from "../../types/types";
+import styles from "./MainPage.module.css";
 
 const MainPage = () => {
   const [search, setSearch] = useState(localStorage.getItem("textQuery") ?? "");
@@ -13,10 +14,10 @@ const MainPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-        if (search.length < 3) {
-          setCharacters([]);
-          return; 
-        }
+      if (search.length < 3) {
+        setCharacters([]);
+        return;
+      }
       setLoading(true);
       setError("");
       try {
@@ -49,8 +50,12 @@ const MainPage = () => {
 
   return (
     <>
-      <InputSearch setSearch={setSearch} search={search} />
-      {counts > 0 && <div>Found characters: {counts}</div>}
+      <div className={styles.mainWrapper}>
+        <InputSearch setSearch={setSearch} search={search} />
+        {counts > 0 && (
+          <div className={styles.mainCount}>Found characters: {counts}</div>
+        )}
+      </div>
       {loading ? <p>Loading...</p> : <CardsList characters={characters} />}
       {textError && <p>{textError}</p>}
     </>
