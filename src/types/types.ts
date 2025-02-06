@@ -35,3 +35,24 @@ export interface ApiResponse {
   info: Info
   results: CharacterArray
 }
+
+export const defaultCharacter: Character = {
+  id: 0,
+  name: '',
+  status: 'Alive',
+  species: '',
+  type: '',
+  gender: 'unknown',
+  origin: {
+    name: '',
+    url: ''
+  },
+  location: {
+    name: '',
+    url: ''
+  },
+  image: '',
+  episode: [''],
+  url: '',
+  created: ''
+}
