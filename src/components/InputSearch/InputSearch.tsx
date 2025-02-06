@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styles from "./InputSearch.module.css";
 
 interface InputSearchProps {
@@ -6,14 +7,19 @@ interface InputSearchProps {
 }
 
 const InputSearch: React.FC<InputSearchProps> = ({ setSearch, search }) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const text = (e.target as HTMLInputElement).value.toLowerCase().trim();
-    setSearch(text);
-    localStorage.setItem("textQuery", text);
+    setSearch(e.target.value.toLowerCase().trim());
   };
 
   return (
     <input
+      ref={inputRef}
       type="text"
       placeholder="Search characters..."
       value={search}
