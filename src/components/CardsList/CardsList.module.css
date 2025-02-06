@@ -1,10 +1,9 @@
 .cardsList {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(3, minmax(auto, 518px)); 
-  grid-auto-rows: auto;
-  justify-content: center;
+  grid-template-columns: repeat(12, 1fr);
   margin-top: 67px;
+  width: 100%;
 }
 
 .cardsItem {
@@ -16,6 +15,16 @@
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+  box-shadow: var(--basic-box-shadow);
+}
+
+.cardsItem:nth-child(1),
+.cardsItem:nth-child(2) {
+  grid-column: span 6;
+  height: 262px;
+}
+
+.cardsItem:nth-child(n+3) {
+  grid-column: span 4;
   height: 150px;
-  box-shadow: var(--basic-box-shadow)
 }

@@ -5,7 +5,6 @@ export async function searchCharacters (query: string) {
   try {
     const res: Response = await fetch(`${API_URL}/?name=${query}`)
     const data: ApiResponse = await res.json()
-    console.log(data)
     return data
   } catch {
     return null
