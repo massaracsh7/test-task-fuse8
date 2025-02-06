@@ -2,21 +2,13 @@ import { Link } from "react-router-dom";
 import { CharacterArray } from "../../types/types";
 import styles from "./CardsList.module.css";
 import formatDate from "../../utils/formatDate";
+import { getStatusClass } from "../../utils/statusClass";
 
 interface CardsListProps {
   characters: CharacterArray;
 }
 
 const CardsList: React.FC<CardsListProps> = ({ characters }) => {
-  const colorText = (status: string): string => {
-    if (status === "Alive") {
-      return styles.green;
-    } else if (status === "Dead") {
-      return styles.red;
-    } else {
-      return styles.grey;
-    }
-  };
 
   return (
     <>
@@ -33,7 +25,7 @@ const CardsList: React.FC<CardsListProps> = ({ characters }) => {
                   <div className={styles.cardsBottom}>
                     <p>
                       Status:{" "}
-                      <span className={colorText(character.status)}>
+                      <span className={getStatusClass(character.status)}>
                         {character.status}
                       </span>
                     </p>
