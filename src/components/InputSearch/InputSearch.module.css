@@ -1,0 +1,16 @@
+.inputSearch {
+  padding: 19px 25px;
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  box-shadow: var(--basic-box-shadow);
+  max-width: 626px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.inputSearch::placeholder {
+  color: var(--secondary-color);
+}

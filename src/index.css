@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Fira Sans";
-  src: url("/assets/fonts/FiraSans-Regular.woff2") format("woff2"),
+  src: url("/fonts/FiraSans-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Fira Sans";
-  src: url("/assets/fonts/FiraSans-Bold.woff2") format("woff2"),
+  src: url("/fonts/FiraSans-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -17,6 +17,8 @@
   --primary-color: #282626;
   --secondary-color: #656ec2;
   --background-color: #ffffff;
+
+  --basic-box-shadow: 0px 7px 12px 0px #64646F33;
 
   --container-max-width: 1620px;
   --container-padding: 12px;
@@ -42,3 +44,13 @@ a {
 a:hover {
   color: #535bf2;
 }
+
+/* Group 2 */
+
+position: absolute;
+width: 626px;
+height: 64px;
+left: 647px;
+top: 128px;
+
+

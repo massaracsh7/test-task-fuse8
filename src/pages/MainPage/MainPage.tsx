@@ -1,8 +1,9 @@
+import InputSearch from "../../components/InputSearch/InputSearch";
 
 const MainPage = () => {
   return (
-    <div>MainPage</div>
-  )
-}
+      <InputSearch />
+  );
+};
 
-export default MainPage
+export default MainPage;
