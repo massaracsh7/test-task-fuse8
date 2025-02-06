@@ -1,17 +1,25 @@
-import { useState } from "react";
 import styles from "./InputSearch.module.css";
 
-const InputSearch = () => {
-  const [query, setQuery] = useState("");
+interface InputSearchProps {
+  setSearch: (query: string) => void;
+  search: string;
+}
+
+const InputSearch: React.FC<InputSearchProps> = ({ setSearch, search }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+    localStorage.setItem("textQuery", e.target.value);
+  };
+
   return (
     <input
       type="text"
       placeholder="Search characters..."
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
+      value={search}
+      onChange={handleChange}
       className={styles.inputSearch}
     />
   );
-}
+};
 
-export default InputSearch
+export default InputSearch;

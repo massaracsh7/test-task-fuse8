@@ -29,7 +29,7 @@ export interface Character {
   created: string
 }
 
-export type CharacterArray = Array<Character> | false
+export type CharacterArray = Array<Character> | null
 
 export interface ApiResponse {
   info: Info

@@ -4,12 +4,15 @@
   grid-template-columns: repeat(3, minmax(auto, 518px)); 
   grid-auto-rows: auto;
   justify-content: center;
+  margin-top: 67px;
 }
 
 .cardsItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px 34px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;

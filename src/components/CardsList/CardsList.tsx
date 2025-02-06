@@ -1,20 +1,29 @@
+import { CharacterArray } from "../../types/types";
 import styles from "./CardsList.module.css";
 
-const CardsList = () => {
+interface CardsListProps {
+  characters: CharacterArray;
+}
+
+const CardsList: React.FC<CardsListProps> = ({ characters }) => {
   return (
-    <div>
-      CardsList
-      <ul className={styles.cardsList}>
-        <li className={styles.cardsItem}>1</li>
-        <li className={styles.cardsItem}>2</li>
-        <li className={styles.cardsItem}>3</li>
-        <li className={styles.cardsItem}>4</li>
-        <li className={styles.cardsItem}>5</li>
-        <li className={styles.cardsItem}>6</li>
-        <li className={styles.cardsItem}>7</li>
-        <li className={styles.cardsItem}>8</li>
-      </ul>
-    </div>
+    <>
+      {characters ? (
+        <ul className={styles.cardsList}>
+          {characters.map((character) => (
+            <li key={character.id} className={styles.cardsItem}>
+              <h3>{character.name}</h3>
+              <div>
+                <p>{character.status}</p>
+                <p>{character.created}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No characters found</p>
+      )}
+    </>
   );
 };
 

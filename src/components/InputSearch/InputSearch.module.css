@@ -9,6 +9,7 @@
   width: 100%;
   border: none;
   outline: none;
+  margin-bottom: 13px;
 }
 
 .inputSearch::placeholder {
