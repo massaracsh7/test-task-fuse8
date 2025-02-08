@@ -9,3 +9,25 @@
   margin: 0 auto;
   margin-bottom: 54px;
 }
+
+@media (max-width: 1200px) {
+  .mainCount {
+    font-size: 15px;
+    line-height: 18px;
+    padding: 12px 35px;
+  }
+  .mainWrapper {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainCount {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 10px 30px;
+  }
+  .mainWrapper {
+    margin-bottom: 20px;
+  }
+}
