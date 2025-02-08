@@ -8,23 +8,35 @@ interface DetailInfoProps {
 const DetailInfo: React.FC<DetailInfoProps> = ({ character }) => {
   return (
     <div className={styles.detailWrapper}>
-      <img src={character.image} />
+      {character.image && character.image.trim().length > 0 ? (
+        <img
+          src={character.image}
+          alt={character.name}
+          className={styles.detailImage}
+        />
+      ) : (
+        <div className={styles.placeholderImage}>No image available</div>
+      )}
       <h4 className={styles.detailName}>{character.name}</h4>
       <p>
         <b>Status: </b>
         {character.status}
       </p>
       <p>
-        <b>Gender: </b>{character.gender}
+        <b>Gender: </b>
+        {character.gender}
       </p>
       <p>
-        <b>Species: </b>{character.species}
+        <b>Species: </b>
+        {character.species}
       </p>
       <p>
-        <b>Loctaion: </b>{character.location.name}
+        <b>Location: </b>
+        {character.location.name}
       </p>
       <p>
-        <b>Origin: </b>{character.origin.name}
+        <b>Origin: </b>
+        {character.origin.name}
       </p>
     </div>
   );

@@ -10,3 +10,22 @@
   font-size: 24px;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .detailImage {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detailWrapper {
+   font-size: 12px;
+  }
+
+  .detailImage {
+    width: 200px;
+  }
+  .detailName {
+    font-size: 18px;
+  }
+}
