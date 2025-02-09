@@ -1,9 +1,10 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState} from "react";
 import { Character } from "../../types/types";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getCharacter } from "../../utils/api";
 import DetailInfo from "../../components/DetailInfo/DetailInfo";
 import styles from "./DetailPage.module.css";
+import BackButton from "../../components/Button/BackButton";
 
 const DetailPage: React.FC = () => {
   const [character, setCharacter] = useState<Character | null>(null);
@@ -11,8 +12,6 @@ const DetailPage: React.FC = () => {
   const [error, setError] = useState<string>("");
 
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-
   const detailId = id ? parseInt(id, 10) : null;
 
   useEffect(() => {
@@ -42,19 +41,9 @@ const DetailPage: React.FC = () => {
     fetchData();
   }, [detailId]);
 
-  const goBack = useCallback(() => {
-    navigate("/", { replace: true });
-  }, [navigate]);
-
   return (
     <div className={styles.detailPage}>
-      <button
-        className={styles.buttonBack}
-        onClick={goBack}
-        aria-label="Go back to the main page"
-      >
-        To Main Page
-      </button>
+      <BackButton />
       {loading && <div>Loading...</div>}
       {error && <div className={styles.error}>{error}</div>}
       {!loading && !error && character && <DetailInfo character={character} />}
