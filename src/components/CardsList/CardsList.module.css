@@ -11,7 +11,6 @@
   padding: 20px 34px;
   font-size: 25px;
   line-height: 34px;
-  font-weight: 400;
   box-shadow: var(--basic-box-shadow);
   cursor: pointer;
   transition: transform 0.5s ease;
@@ -49,7 +48,6 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-secondary);
-  font-weight: 400;
   color: var(--text-color);
   font-size: 14px;
   line-height: 30px;

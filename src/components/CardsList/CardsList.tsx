@@ -26,9 +26,9 @@ const CardsList: React.FC<CardsListProps> = ({ characters }) => {
                   <p>{character.name}</p>
                   <div className={styles.cardsBottom}>
                     <p>
-                      Status:
+                      Status:&nbsp;
                       <span className={getStatusClass(character.status)}>
-                        {character.status}
+                         {character.status}
                       </span>
                     </p>
                     <p>Created: {formatDate(character.created)}</p>
