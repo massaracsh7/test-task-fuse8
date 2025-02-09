@@ -4,6 +4,7 @@ import InputSearch from "../../components/InputSearch/InputSearch";
 
 import styles from "./MainPage.module.css";
 import useCharacterSearch from "../../hooks/useCharacterSearch";
+import Loader from "../../components/Loader/Loader";
 
 const MainPage = () => {
 const [search, setSearch] = useState<string>(
@@ -24,7 +25,7 @@ const { loading, characters, counts, error } = useCharacterSearch(search);
           <div className={styles.mainCount}>Found characters: {counts}</div>
         )}
       </div>
-      {loading ? <p>Loading...</p> : <CardsList characters={characters} />}
+      {loading ? <Loader /> : <CardsList characters={characters} />}
       {error && <p>{error}</p>}
     </>
   );

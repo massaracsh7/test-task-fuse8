@@ -5,6 +5,7 @@ import { getCharacter } from "../../utils/api";
 import DetailInfo from "../../components/DetailInfo/DetailInfo";
 import styles from "./DetailPage.module.css";
 import BackButton from "../../components/Button/BackButton";
+import Loader from "../../components/Loader/Loader";
 
 const DetailPage: React.FC = () => {
   const [character, setCharacter] = useState<Character | null>(null);
@@ -44,7 +45,7 @@ const DetailPage: React.FC = () => {
   return (
     <div className={styles.detailPage}>
       <BackButton />
-      {loading && <div>Loading...</div>}
+      {loading && <Loader />}
       {error && <div className={styles.error}>{error}</div>}
       {!loading && !error && character && <DetailInfo character={character} />}
     </div>
