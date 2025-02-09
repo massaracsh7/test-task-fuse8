@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Fira Sans";
+  src: url("/fonts/fira-sans-v17-latin-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  src: url("/fonts/fira-sans-v17-latin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/montserrat-v29-latin-regular.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/montserrat-v29-latin-700.woff2') format('woff2');
+}
+
+:root {
+  --font-primary: "Fira Sans", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --primary-color: #282626;
+  --secondary-color: #656ec2;
+  --background-color: #ffffff;
+  --text-color: #767676;
+  --green-color: #267504;
+  --red-color: #820A0A;
+
+
+  --basic-box-shadow: 0px 7px 12px 0px #64646F33;
+
+  --container-max-width: 1640px;
+  --container-padding: 22px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: сolor 0.5s ease;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+
+

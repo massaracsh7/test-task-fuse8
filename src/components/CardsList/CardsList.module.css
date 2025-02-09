@@ -1,0 +1,129 @@
+.cardsList {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+  
+}
+
+.cardsItem {
+  display: flex;
+  padding: 20px 34px;
+  font-size: 25px;
+  line-height: 34px;
+  box-shadow: var(--basic-box-shadow);
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.cardsItem:hover {
+  transform: translateY(-5px);
+}
+
+.cardsItem:active {
+  transform: scale(0.95);
+}
+
+.cardsItem:nth-child(1),
+.cardsItem:nth-child(2) {
+  grid-column: span 6;
+  height: 262px;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.cardsItem:nth-child(n+3) {
+  grid-column: span 4;
+  height: 150px;
+}
+
+.cardsLink {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardsBottom {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-secondary);
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.cardsItem:nth-child(n+3) .cardsBottom {
+  line-height: 14px;
+}
+
+.red {
+  color: var(--red-color);
+  font-weight: 700;
+}
+
+.green {
+  color: var(--green-color);
+  font-weight: 700;
+}
+
+.grey {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .cardsList {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .cardsItem:nth-child(1),
+  .cardsItem:nth-child(2) {
+    grid-column: span 4;
+    height: 220px;
+    font-size: 26px;
+    line-height: 28px;
+  }
+  .cardsItem:nth-child(n+3) {
+    grid-column: span 4;
+    height: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .cardsItem {
+    grid-column: span 4;
+    padding: 15px 20px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .cardsItem:nth-child(1),
+  .cardsItem:nth-child(2),
+  .cardsItem:nth-child(n+3) {
+    height: auto;
+  }
+  .cardsBottom {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .cardsList {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+  .cardsItem {
+    grid-column: span 1;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .cardsBottom {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
