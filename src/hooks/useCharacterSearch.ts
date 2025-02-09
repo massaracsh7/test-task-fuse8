@@ -9,7 +9,9 @@ const useCharacterSearch = (query: string) => {
   const [error, setError] = useState<string>('')
 
   const getData = useCallback(async () => {
-    if (query.length < 3) {
+    const trimmedQuery = query.trim()
+
+    if (trimmedQuery.length < 3) {
       setCharacters([])
       setCounts(0)
       return
@@ -18,7 +20,7 @@ const useCharacterSearch = (query: string) => {
     setLoading(true)
     setError('')
     try {
-      const data = await searchCharacters(query)
+      const data = await searchCharacters(trimmedQuery)
       if (data?.results && data.results.length > 0) {
         setCharacters(data.results)
         setCounts(data.info.count)

@@ -5,10 +5,22 @@
   background-color: transparent;
   cursor: pointer;
   margin-bottom: 20px;
+  transition: border 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .buttonBack:hover {
   border: 1px solid var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: var(--basic-box-shadow);
+}
+
+.buttonBack:focus {
+  border-color: var(--secondary-color);
+  transform: scale(1.05);
+  box-shadow: var(--basic-box-shadow);
+}
+
+.buttonBack:active {
+  transform: scale(0.95);
+  box-shadow: none;
 }

@@ -3,6 +3,7 @@
   gap: 20px;
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
+  
 }
 
 .cardsItem {
@@ -13,10 +14,15 @@
   font-weight: 400;
   box-shadow: var(--basic-box-shadow);
   cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
 .cardsItem:hover {
   transform: translateY(-5px);
+}
+
+.cardsItem:active {
+  transform: scale(0.95);
 }
 
 .cardsItem:nth-child(1),
@@ -52,8 +58,6 @@
 .cardsItem:nth-child(n+3) .cardsBottom {
   line-height: 14px;
 }
-
-
 
 .red {
   color: var(--red-color);

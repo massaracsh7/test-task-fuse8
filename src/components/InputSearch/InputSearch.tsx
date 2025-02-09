@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./InputSearch.module.css";
 
 interface InputSearchProps {
@@ -8,24 +8,38 @@ interface InputSearchProps {
 
 const InputSearch: React.FC<InputSearchProps> = ({ setSearch, search }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const [error, setError] = useState<string>("");
+
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!/^[a-z\s]*$/i.test(e.target.value)) return;
-    setSearch(e.target.value.toLowerCase().trim());
+    const value = e.target.value;
+
+    if (!/^[a-zA-Z\s]*$/.test(value)) {
+      setError("Only Latin letters and spaces are allowed");
+      return;
+    }
+
+    setError("");
+    setSearch(value.toLowerCase());
   };
 
   return (
-    <input
-      ref={inputRef}
-      type="text"
-      placeholder="Search characters..."
-      value={search}
-      onChange={handleChange}
-      className={styles.inputSearch}
-    />
+    <div className={styles.inputContainer}>
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder="Search characters..."
+        value={search}
+        onChange={handleChange}
+        className={styles.inputSearch}
+        aria-label="Search characters by name"
+        aria-invalid={!!error}
+      />
+      {error && <p className={styles.error}>{error}</p>}
+    </div>
   );
 };
 

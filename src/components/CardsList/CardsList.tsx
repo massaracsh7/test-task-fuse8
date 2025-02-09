@@ -20,11 +20,13 @@ const CardsList: React.FC<CardsListProps> = ({ characters }) => {
                 <Link
                   to={`/character/${character.id}`}
                   className={styles.cardsLink}
+                  tabIndex={0}
+                  aria-label={`View details of ${character.name}`}
                 >
                   <p>{character.name}</p>
                   <div className={styles.cardsBottom}>
                     <p>
-                      Status:{" "}
+                      Status:
                       <span className={getStatusClass(character.status)}>
                         {character.status}
                       </span>

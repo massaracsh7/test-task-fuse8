@@ -48,7 +48,11 @@ const DetailPage: React.FC = () => {
 
   return (
     <div className={styles.detailPage}>
-      <button className={styles.buttonBack} onClick={goBack}>
+      <button
+        className={styles.buttonBack}
+        onClick={goBack}
+        aria-label="Go back to the main page"
+      >
         To Main Page
       </button>
       {loading && <div>Loading...</div>}

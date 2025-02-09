@@ -59,6 +59,7 @@ body {
 a {
   text-decoration: none;
   color: var(--primary-color);
+  transition: сolor 0.5s ease;
 }
 a:hover {
   color: var(--secondary-color);
